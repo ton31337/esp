@@ -1,0 +1,5 @@
+switch:
+  - platform: rpi_gpio
+    ports:
+      16: head1
+    invert_logic: true

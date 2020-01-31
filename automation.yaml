@@ -1,0 +1,16 @@
+- alias: Turn on
+  trigger:
+    platform: numeric_state
+    above: 24
+    entity_id: sensor.temperature
+  action:
+    service: switch.turn_on
+    entity_id: switch.head1
+- alias: Turn off
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    below: 24
+  action:
+    service: switch.turn_off
+    entity_id: switch.head1

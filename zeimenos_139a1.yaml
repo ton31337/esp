@@ -5,11 +5,11 @@ esphome:
 
 wifi:
   ssid: "donatas"
-  password: ""
+  password: !secret wifi_password
 
   ap:
     ssid: "Fallback Hotspot"
-    password: ""
+    password: !secret ap_password
 
 dallas:
   - pin: D1
@@ -27,6 +27,15 @@ sensor:
   - platform: dallas
     name: dallas1
     address: 0x1300000575E44828
+
+  - platform: adc
+    pin: A0
+    name: "MQ-6"
+    update_interval: 5s
+    filters:
+      - multiply: 100
+    unit_of_measurement: "%"
+    icon: "mdi:percent"
 
 captive_portal:
 logger:
